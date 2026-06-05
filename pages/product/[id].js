@@ -3,16 +3,12 @@ import { useEffect, useState } from 'react';
 import { products } from '../../data/products';
 
 export default function ProductDetail({ addToCart }) {
-  // Requirement: Correctly handles route parameters in dynamic pages
   const router = useRouter();
   const { id } = router.query; 
 
   const [product, setProduct] = useState(null);
-
-  // Requirement: Manages component state using useEffect
   useEffect(() => {
     if (id) {
-      // Simulate fetching data based on the route parameter
       const foundProduct = products.find((p) => p.id === id);
       setProduct(foundProduct);
     }

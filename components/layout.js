@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-// Requirement: Passes and handles props (cartCount)
 export default function Layout({ children, cartCount }) {
   return (
     <div>

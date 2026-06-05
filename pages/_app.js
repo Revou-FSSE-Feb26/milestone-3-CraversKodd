@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import Layout from '../components/Layout';
-import '../styles/global.css'; // Assuming you put the CSS here
+import '../styles/global.css';
 
 export default function App({ Component, pageProps }) {
-  // Requirement: Manages state using useState
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
