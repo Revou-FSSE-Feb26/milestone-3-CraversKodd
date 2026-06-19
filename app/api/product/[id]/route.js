@@ -1,0 +1,20 @@
+import { NextResponse } from 'next/server';
+
+export async function DELETE(request, { params }) {
+  const { id } = params;
+  await fetch(`https://api.escuelajs.co/api/v1/products/${id}`, { method: 'DELETE' });
+  return NextResponse.json({ success: true });
+}
+
+export async function PUT(request, { params }) {
+  const { id } = params;
+  const body = await request.json();
+  
+  const updatedProduct = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  }).then(r => r.json());
+
+  return NextResponse.json(updatedProduct);
+}
