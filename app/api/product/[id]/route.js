@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+const token = request.cookies.get('token');
+if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
 export async function DELETE(request, { params }) {
   const { id } = params;
   await fetch(`https://api.escuelajs.co/api/v1/products/${id}`, { method: 'DELETE' });

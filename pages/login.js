@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 export default function Login() {
-  const [email, setEmail] = useState('revo@mail.com'); // Platzi test email
-  const [password, setPassword] = useState('revoshop'); // Platzi test password
+  const [email, setEmail] = useState('john@mail.com'); // Platzi test email
+  const [password, setPassword] = useState('changeme'); // Platzi test password
   const router = useRouter();
 
   const handleLogin = async (e) => {

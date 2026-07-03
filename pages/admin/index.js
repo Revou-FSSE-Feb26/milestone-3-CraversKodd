@@ -1,17 +1,15 @@
-'use client';
 import { useEffect, useState } from 'react';
 
 export default function AdminDashboard() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); 
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
 
   // 1. Fetching (GET)
   useEffect(() => {
-    fetch('/api/product')
+    fetch('/api/products')
       .then(res => res.json())
-      .then(data => setProducts(data.slice(0, 10)))
-      .catch(err => console.error('Error fetching products:', err));
+      .then(data => setProducts(data.slice(0, 10))); 
   }, []);
 
   // 2. Form Validation & Creation (POST)
@@ -21,7 +19,7 @@ export default function AdminDashboard() {
       return alert('Validation Error: Title is required and price must be greater than 0.');
     }
 
-    const res = await fetch('/api/product', {
+    const res = await fetch('/api/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, price: Number(price), description: 'New', categoryId: 1, images: ['https://placeimg.com/640/480/any'] })
@@ -37,7 +35,7 @@ export default function AdminDashboard() {
 
   // 3. Deletion (DELETE)
   const handleDelete = async (id) => {
-    const res = await fetch(`/api/product/${id}`, { method: 'DELETE' });
+    const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
     if (res.ok) {
       setProducts(products.filter(p => p.id !== id)); // Dynamic UI Update
     }
