@@ -1,4 +1,4 @@
-"use client"; // This is mandatory for Context in the App Router
+"use client";
 
 import { createContext, useState, useEffect } from 'react';
 
@@ -28,17 +28,17 @@ export function AppProvider({ children }) {
       const existing = prev.find(item => item.id === product.id);
 
       if (existing) {
-        // Produk sudah ada → naikkan quantity
+        // untuk saat roduk sudah ada = naikkan quantity
         return prev.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item );
       }
 
-      // Produk baru → tambahkan dengan quantity 1
+      // Untuk roduk baru = tambahkan dengan quantity (1)
       return [...prev, { ...product, quantity: 1 }];
     });
   };
 
 
-  // ✅ Kurangi quantity (hapus jika quantity mencapai 0)
+  //Kurangi quantity (hapus jika quantity mencapai 0)
   const decreaseQuantity = (productId) => {
     setCart((prev) =>
       prev
@@ -52,13 +52,10 @@ export function AppProvider({ children }) {
   };
 
 
-  // ✅ Hapus item sepenuhnya dari cart
   const removeFromCart = (productId) => {
     setCart((prev) => prev.filter(item => item.id !== productId));
   };
 
-
-  // ✅ Kosongkan seluruh cart
   const clearCart = () => {
     setCart([]);
   };

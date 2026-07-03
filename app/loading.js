@@ -10,9 +10,9 @@ export default function Loading() {
             overflow: 'hidden',
             animation: 'pulse 1.5s ease-in-out infinite',
           }}>
-            {/* Bayangan gambar */}
+            {}
             <div style={{ width: '100%', height: '200px', background: '#e0e0e0' }} />
-            {/* Bayangan teks */}
+            {}
             <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <div style={{ height: '16px', background: '#e0e0e0', borderRadius: '4px', width: '80%' }} />
               <div style={{ height: '14px', background: '#e0e0e0', borderRadius: '4px', width: '50%' }} />
@@ -22,7 +22,7 @@ export default function Loading() {
         ))}
       </div>
 
-      {/* CSS untuk efek kilap */}
+      {}
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; }

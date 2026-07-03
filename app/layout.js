@@ -1,6 +1,6 @@
 import { AppProvider } from '../context/AppContext';
 import Link from 'next/link';
-import '../styles/globals.css';
+import '../css/global.css';
 
 export const metadata = {
   title: 'RevoShop',

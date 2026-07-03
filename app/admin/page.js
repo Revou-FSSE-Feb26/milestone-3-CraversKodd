@@ -39,7 +39,7 @@ export default function AdminDashboard() {
   const handleDelete = async (id) => {
     const res = await fetch(`/api/product/${id}`, { method: 'DELETE' });
     if (res.ok) {
-      setProducts(products.filter(p => p.id !== id)); // Dynamic UI Update
+      setProducts(products.filter(p => p.id !== id));
     }
   };
 
@@ -56,7 +56,6 @@ export default function AdminDashboard() {
 
     if (res.ok) {
       const updated = await res.json();
-      // Dynamic UI Update
       setProducts(products.map(p => p.id === id ? updated : p));
     }
   };

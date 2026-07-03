@@ -1,10 +1,9 @@
-// This is a Server Component! It fetches data on the server before sending HTML to the client.
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/productcard';
 
 export default async function Home() {
-  // Fetching directly in the component
+
   const res = await fetch('https://api.escuelajs.co/api/v1/products?offset=0&limit=12', {
-    cache: 'no-store' // Ensures fresh data
+    cache: 'no-store'
   });
   
   if (!res.ok) return <h2 style={{ color: 'red' }}>Failed to load products.</h2>;

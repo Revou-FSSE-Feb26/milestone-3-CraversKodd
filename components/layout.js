@@ -8,7 +8,7 @@ export default function Layout({ children, cartCount }) {
           RevoShop
         </Link>
         <nav style={{ display: 'flex', gap: '1rem' }}>
-          {/* Requirement: Uses Link from next/link for client-side navigation */}
+          {}
           <Link href="/">Home</Link>
           <Link href="/promotions">Promotions</Link>
           <Link href="/faq">FAQ</Link>

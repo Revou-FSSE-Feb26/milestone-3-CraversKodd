@@ -1,16 +1,16 @@
-import AddToCartButton from './AddToCartButton'; // You should extract the button to a Client Component
+import AddToCartButton from './AddToCartButton';
 
 export default async function ProductDetail({ params }) {
   const { id } = await params;
-  // `params.id` is automatically passed based on the folder name [id]
+
 try { 
   const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
    if (!res.ok) {
-      // Kalau produk tidak ditemukan (404) atau server error (500)
+      // untuk return 404 atau 500
       return (
         <div style={{ textAlign: 'center', padding: '4rem', color: 'red' }}>
-          <h2>Produk tidak ditemukan</h2>
-          <p>Produk dengan ID {id} tidak tersedia.</p>
+          <h2>Product not Found</h2>
+          <p>Product with ID {id} not found.</p>
         </div>
       );
     }
@@ -30,8 +30,8 @@ try {
 } catch (err) {
  return (
       <div style={{ textAlign: 'center', padding: '4rem', color: 'red' }}>
-        <h2>Terjadi Kesalahan</h2>
-        <p>Tidak bisa memuat detail produk. Coba lagi nanti.</p>
+        <h2>An error has occur</h2>
+        <p>Cannot load product. Please try again later...</p>
       </div>
     );
   }

@@ -28,7 +28,7 @@ export default function Checkout() {
       <button
         style={{ background: '#2ed573', padding: '1rem', border: 'none', color: 'white', cursor: 'pointer' }}
         onClick={() => {
-          clearCart();           // ← kosongkan cart setelah bayar
+          clearCart();
           alert('payment successful!');
         }}
       > Pay Now </button>

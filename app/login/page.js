@@ -16,7 +16,7 @@ export default function Login() {
 
     if (res.ok) {
       const data = await res.json();
-      // Store token in cookies so Middleware can read it
+      //untuk menyimpan token buat dibaca middleware
       document.cookie = `token=${data.access_token}; path=/`;
       router.push('/checkout');
     } else {
