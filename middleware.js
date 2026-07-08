@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server';
 
 export function middleware(req) {
-  const token = req.cookies.get('token')?.value;
+  const token = req.cookies.get('access_token')?.value;
+  const { pathname } = req.nextUrl;
 
-  // If trying to access checkout without a token, redirect to login
-  if (req.nextUrl.pathname.startsWith('/checkout') && !token) {
-    return NextResponse.redirect(new URL('/login', req.url));
+  if (pathname.startsWith('/login') && token) {
+    return NextResponse.redirect(new URL('/checkout', req.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/checkout'], // Apply middleware only to checkout
-};
+  matcher: ['/checkout/:path*','login'], // untuk melindungi /checkout dan semua sub-rutenya
+};                                       // dan mencegah user yang sudah login masuk ke hlmn logun

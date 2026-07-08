@@ -1,4 +1,4 @@
-import Link from 'product.images[0]';
+import Link from 'next/link';
 
 export default function ProductCard({ product }) {
   return (

@@ -1,23 +1,24 @@
+'use client'
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
-  const [email, setEmail] = useState('revo@mail.com'); // Platzi test email
-  const [password, setPassword] = useState('revoshop'); // Platzi test password
+  const [email, setEmail] = useState('john@mail.com'); // Platzi default test email
+  const [password, setPassword] = useState('changeme'); // Platzi default test password
   const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const res = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
+    
+    // 1. bagian untuk panggil API Route lokal, bukan API Platzi langsung
+    const res = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     });
 
     if (res.ok) {
-      const data = await res.json();
-      //untuk menyimpan token buat dibaca middleware
-      document.cookie = `token=${data.access_token}; path=/`;
       router.push('/checkout');
     } else {
       alert('Login failed');
